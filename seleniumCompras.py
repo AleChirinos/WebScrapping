@@ -48,3 +48,29 @@ urlImagenProductoAmazon = imagenProductoAmazoniImg.get_attribute('src')
 print(nombreProductoAmazon)
 print(precioProductoAmazon)
 print(urlImagenProductoAmazon)
+
+sleep(8)
+
+#OLX
+driver.get('https://www.olx.com.ec/')
+#Solicitar la busqueda
+buscadorOLXTextBox = driver.find_element_by_xpath('//input[@data-aut-id="searchBox"]')
+buscadorOLXTextBox.send_keys(busqueda)
+sleep(5)
+
+buscadorOLXBoton= driver.find_element_by_xpath('//div[@data-aut-id="btnSearch"]')
+buscadorOLXBoton.click()
+sleep(7)
+
+#Recolectar informacion
+nombreProductoOLXText = driver.find_element_by_xpath('//div//ul//li[1]//a//div//span[@data-aut-id="itemTitle"]')
+precioEnteroProductoOLXText= driver.find_element_by_xpath('//div//ul//li[1]//a//div//span[@data-aut-id="itemPrice"]')
+imagenProductoOLXImg= driver.find_element_by_xpath('//div//ul//li[1]//a//figure//img')
+
+nombreProductoOLX= nombreProductoOLXText.text
+precioProductoOLX= precioEnteroProductoOLXText.text
+urlImagenProductoOLX = imagenProductoOLXImg.get_attribute('src')
+
+print(nombreProductoOLX)
+print(precioProductoOLX)
+print(urlImagenProductoOLX)
